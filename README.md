@@ -74,4 +74,4 @@ python manage.py runserver
 ```
 
 ## License
-This project is licensed under the MIT LICENSE — [see LICENSE](https://github.com/fekri8614/markdown-it/LICENSE)
+This project is licensed under the MIT LICENSE — [see LICENSE](https://github.com/fekri8614/markdown-it/blame/main/LICENSE)

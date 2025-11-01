@@ -3,7 +3,7 @@
 
 Markdown-It is a Django web app that lets you upload a **PDF** or **image**, then automatically converts it into clean, well-formatted **Markdown text** using **ChatGPT**.
 
-### How it's look like
+### How it looks
 <img src="./Screenshot from 2025-11-01 17-18-52.png" width="60%">
 
 ---

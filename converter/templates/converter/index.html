@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markdown Converter</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --primary: #0066ff;
+      --text: #222;
+      --border: #e0e0e0;
+      --radius: 12px;
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      --font: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      text-align: center;
+      color: #111;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    input[type="file"] {
+      display: block;
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      background-color: #fafafa;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    input[type="file"]:hover {
+      border-color: var(--primary);
+      background-color: #f0f6ff;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0053d6;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .output {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 720px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+
+    .output h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+      color: #111;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      font-family: "Fira Code", monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Markdown Converter</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file" accept="application/pdf,image/*">
+    <button type="submit">Convert to Markdown</button>
+  </form>
+
+  {% if markdown %}
+  <div class="output">
+    <h2>Markdown Output</h2>
+    <pre>{{ markdown }}</pre>
+  </div>
+  {% endif %}
+</body>
+</html>
+
